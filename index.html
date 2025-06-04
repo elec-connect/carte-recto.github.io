@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte de Visite - Recto | ElecConnect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Reset et styles de base ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+
+        /* ===== Styles de la carte ===== */
+        .business-card {
+            width: 85mm;
+            height: 55mm;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .card-front {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(83, 1, 246, 0.9), rgba(2, 246, 35, 0.9));
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-front::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/img/maison-logo.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== En-tête de la carte ===== */
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            align-self: center;
+            margin-bottom: 5px;
+        }
+
+        .elec {
+            color: #0066cc;
+            font-weight: 800;
+        }
+
+        .connect {
+            color: #ff6b6b;
+            font-weight: 800;
+        }
+
+        .divider {
+            color: #adb5bd;
+            margin: 0 5px;
+            font-weight: 400;
+        }
+
+        /* ===== Informations personnelles ===== */
+        .name {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .manager {
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* ===== Liste des services ===== */
+        .services {
+            font-size: 11px;
+            line-height: 1.2;
+            margin: 5px 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        .services li {
+            margin-bottom: 3px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+        }
+
+        /* ===== Contact ===== */
+        .contact {
+            font-size: 11px;
+            margin-top: auto;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ===== Bouton de capture ===== */
+        .capture-btn {
+            background: linear-gradient(135deg, #000000, #333333);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .capture-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+
+        /* ===== Icônes ===== */
+        .icon-bolt {
+            color: #deff07;
+            margin-right: 8px;
+        }
+
+        .icon-lightbulb {
+            color: #ffd43b;
+            margin-right: 5px;
+        }
+
+        .icon-house {
+            color: #ff07d6;
+            margin-left: 5px;
+        }
+
+        .icon-window {
+            color: #74c0fc;
+            margin-right: 5px;
+        }
+
+        .icon-plug {
+            color: #00fff7;
+            margin-left: 5px;
+        }
+
+        .icon-thermometer {
+            color: #ff8787;
+            margin-right: 5px;
+        }
+
+        .icon-robot {
+            color: #deff07;
+            margin-left: 5px;
+        }
+
+        .icon-contact {
+            color: #ffffff;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="business-card">
+        <div class="card-front">
+            <div class="card-content">
+                <div class="logo-badge">
+                   <i class="fas fa-bolt icon-bolt"></i>
+                   <span class="elec">Elec</span>
+                   <span class="divider">-</span>
+                   <span class="connect">Connect</span>
+                </div>
+                
+                <div>
+                    <div class="name">ELECTRICITE CONNECTEE</div>
+                    <div class="manager">Gérant : Sahnoun Ben Haouala</div>
+                    
+                    <ul class="services">
+                        <li>
+                            <span class="service-item">
+                                <i class="fas fa-lightbulb icon-lightbulb"></i> Éclairage connecté
+                            </span>
+                            <span class="service-item">
+                                <i class="fa-solid fa-house-signal icon-house"></i> Maison intelligente
+                            </span>
+                        </li>
+                        <li>
+                            <span class="service-item">
+                                <i class="fas fa-window-maximize icon-window"></i> Volets connectés
+                            </span>
+                            <span class="service-item">
+                                <i class="fas fa-plug icon-plug"></i> Domotique
+                            </span>
+                        </li>
+                        <li>
+                            <span class="service-item">
+                                <i class="fas fa-thermometer-half icon-thermometer"></i> Chauffage connecté
+                            </span>
+                            <span class="service-item">
+                                <i class="fa-solid fa-robot icon-robot"></i> Assistance vocale
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact">
+                    <i class="fas fa-envelope icon-contact"></i> iot.sahnoun@gmail.com<br>
+                    <i class="fas fa-phone icon-contact"></i> +216 29 328 870
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="capture-btn" id="captureFrontBtn">
+        <i class="fas fa-camera"></i> Télécharger Recto
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.getElementById('captureFrontBtn').addEventListener('click', () => {
+            html2canvas(document.querySelector('.business-card'), {
+                scale: 3,
+                backgroundColor: '#f5f7fa'
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'Carte_ElecConnect_Recto.jpg';
+                link.href = canvas.toDataURL('image/jpeg', 0.95);
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>
